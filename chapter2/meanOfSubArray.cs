@@ -2,15 +2,23 @@ using System;
 using System.Numerics;
 class MeanOfSubArray {
     static void Main(string[] args) {
-       var noOfArrayElementsAndQueries = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-            var givenArray = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
+       var noOfArrayElementsAndQueries = takeIntParsedUserinput();
+            var givenArray = takeLongParsedUserinput();
             long[] sumsOfPrefixSubArray = getSumsOfPrefixSubArray(givenArray,noOfArrayElementsAndQueries[0]);
             for (var x = 0; x < noOfArrayElementsAndQueries[1]; x++)
             {
-                var startAndEndIndexes = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse)
+                var startAndEndIndexes = takeIntParsedUserinput();
                 var meanOfSubArray = getMeanOfSubArray(sumsOfPrefixSubArray,startAndEndIndexes);
                 Console.WriteLine(meanOfSubArray);
             }
+    }
+
+    static int[] takeIntParsedUserinput(){
+        return Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+    }
+
+    static int[] takeLongParsedUserinput(){
+        return Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);
     }
 
     static long[] getSumsOfPrefixSubArray(long[] givenArray, int sizeOfGivenArray){

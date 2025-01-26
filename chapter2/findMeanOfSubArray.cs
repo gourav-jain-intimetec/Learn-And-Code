@@ -1,6 +1,6 @@
 using System;
 using System.Numerics;
-class MyClass {
+class MeanOfSubArray {
     static void Main(string[] args) {
        var noOfArrayElementsAndQueries = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
             var givenArray = Array.ConvertAll(Console.ReadLine().Split(' '), long.Parse);

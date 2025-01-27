@@ -11,10 +11,7 @@ def getValidUserInput():
     return int(userInput)
 
 def validateUserInput(userInput):
-    if userInput.isdigit() and constants.STARTING_NUMBER<= int(userInput) <=constants.ENDING_NUMBER:
-        return True
-    else:
-        return False
+    return userInput.isdigit() and constants.STARTING_NUMBER<= int(userInput) <=constants.ENDING_NUMBER
 
 def main():
     generatedRandomNumber=getRandomNumber()

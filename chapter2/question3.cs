@@ -1,7 +1,7 @@
 public class CustomerSearch{
     public List < Customer > GetFilteredCustomers(string filter){
-        var filteredCustomers = from c in db.customers where c.Country.Contains(filter)
-                    orderby c.CustomerID ascending select c;
+        var filteredCustomers = from customer in db.customers where customer.Country.Contains(filter)
+                    orderby customer.CustomerID ascending select customer;
         return filteredCustomers.ToList();
     }
 } 

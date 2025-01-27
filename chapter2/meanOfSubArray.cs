@@ -5,11 +5,13 @@ class MeanOfSubArray {
        var noOfArrayElementsAndQueries = takeIntParsedUserinput();
             var givenArray = takeLongParsedUserinput();
             long[] sumsOfPrefixSubArray = getSumsOfPrefixSubArray(givenArray,noOfArrayElementsAndQueries[0]);
-            for (var x = 0; x < noOfArrayElementsAndQueries[1]; x++)
+            var noOfQueriesRemaining = noOfArrayElementsAndQueries[1]; 
+            while(noOfQueriesRemaining > 0)
             {
                 var startAndEndIndexes = takeIntParsedUserinput();
                 var meanOfSubArray = getMeanOfSubArray(sumsOfPrefixSubArray,startAndEndIndexes);
                 Console.WriteLine(meanOfSubArray);
+                noOfQueriesRemaining--;
             }
     }
 
@@ -24,9 +26,9 @@ class MeanOfSubArray {
     static long[] getSumsOfPrefixSubArray(long[] givenArray, int sizeOfGivenArray){
         long[] sumsOfPrefixSubArray = new long[sizeOfGivenArray + 1];
             sumsOfPrefixSubArray[0] = 0;
-            for (int i = 1; i <= sizeOfGivenArray; i++)
+            for (int currentIndex = 1; currentIndex <= sizeOfGivenArray; currentIndex++)
             {
-                sumsOfPrefixSubArray[i] = sumsOfPrefixSubArray[i - 1] + givenArray[i - 1];
+                sumsOfPrefixSubArray[currentIndex] = sumsOfPrefixSubArray[currentIndex - 1] + givenArray[currentIndex - 1];
             }
             return sumsOfPrefixSubArray;
     }

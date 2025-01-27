@@ -11,13 +11,13 @@ def getValidUserInput():
     return int(userInput)
 
 def validateUserInput(userInput):
-    return userInput.isdigit() and constants.STARTING_NUMBER<= int(userInput) <=constants.ENDING_NUMBER
+    return userInput.isdigit() and constants.STARTING_NUMBER <= int(userInput) <= constants.ENDING_NUMBER
 
 def main():
-    generatedRandomNumber=getRandomNumber()
-    didGuessedCorrect=False
-    guessedNumber=getValidUserInput()
-    numberOfGuessesTillNow=0
+    generatedRandomNumber = getRandomNumber()
+    didGuessedCorrect = False
+    guessedNumber = getValidUserInput()
+    numberOfGuessesTillNow = 0
     while not didGuessedCorrect:
         numberOfGuessesTillNow += 1
         
@@ -27,7 +27,6 @@ def main():
             guessedNumber = input("Too High. Guess again")
         else:
             print("You guessed it in",numberOfGuessesTillNow,"guesses!")
-            didGuessedCorrect=True
-
+            didGuessedCorrect = True
 
 main()

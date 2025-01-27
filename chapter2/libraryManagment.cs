@@ -1,4 +1,17 @@
-// Does this Book class follow SRP?  
+// Answer :- Book class doesn't follow SRP because the working of function save and getLocation is not the responsibility of book class instead they could be define in some parent class like library.
+//Solution 
+class Library {
+
+     function getLocation() {
+        // returns the position in the library
+        // ie. shelf number & room number
+    }
+
+    function save() {
+        $filename = '/documents/'. $this->getTitle(). ' - ' . $this->getAuthor();
+        file_put_contents($filename, serialize($this));
+    }
+}
 
 class Book {
  
@@ -18,15 +31,6 @@ class Book {
         return "current page content";
     }
  
-    function getLocation() {
-        // returns the position in the library
-        // ie. shelf number & room number
-    }
-
-    function save() {
-        $filename = '/documents/'. $this->getTitle(). ' - ' . $this->getAuthor();
-        file_put_contents($filename, serialize($this));
-    }
 }
 
 interface Printer {
@@ -48,6 +52,3 @@ class HtmlPrinter implements Printer {
         echo '<div style="single-page">' . $page . '</div>';
     }
 }
-
-
-// Answer :- Book class doesn't follow SRP because the working of function save and getLocation is not the responsibility of book class instead they could be define in some parent class like library managment.

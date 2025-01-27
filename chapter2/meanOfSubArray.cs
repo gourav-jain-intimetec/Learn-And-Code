@@ -41,5 +41,3 @@ class MeanOfSubArray {
         int lengthOfSubArray = endIndex - startIndex + 1;
         return sumOfSubArray / lengthOfSubArray;
     }
-
-}
